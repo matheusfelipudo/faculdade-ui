@@ -1,0 +1,28 @@
+
+<p-card header="lista de Disciplinas">
+  <div class="flex flex-wrap col-12">
+    <p-button  icon="pi pi-plus" routerLink="novo" label="cCriar novo"></p-button>
+  </div>
+  <p-table [value]="disciplinas" styleClass="p-datatable-striped">
+    <ng-template pTemplate="header">
+      <tr>
+        <th width="300px">dsscrição</th>
+        <th width="100px">status</th>
+        <th>data criação</th>
+        <th>usuário criação</th>
+        <th>DATa alteração</th>
+        <th>usuário Alteracão</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-disc>
+      <tr>
+        <td>{{disc.descricao}}</td>
+        <td>{{disc.status && 'Ativo' || 'Inativo'}}</td>
+        <td>{{disc.datacriacao | date : 'dd/MM/YYYY'}}</td>
+        <td>{{disc.usuariocriacao}}</td>
+        <td>{{disc.dataalteracao | date : 'dd/MM/YYYY'}}</td>
+        <td>{{disc.usuarioalteracao}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
